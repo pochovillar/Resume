@@ -3,41 +3,37 @@
 {% block content %}
 <div class="mt-5">
     <div class="text-center">
-        <img src="{% static 'core/images/profile.png' %}" 
-        alt="ProfilePic" class="img-thumbnail"
-        width="250px" height="150px">
+        <img src="{% static 'core/images/profile.png' %}" alt="ProfilePic" class="img-thumbnail" width="250px" height="150px">
     </div>
     <div class="mt-5 text-white mx-5 text-justify">
         <h1 class="font-weight-bold st-font">Hello,</h1>
         <div class="px-4" style="line-height:2rem;">
-            <p style="text-indent: 100px;"> I am <b
-                class="text-warning">kazi Mushfiqur Rahman</b> a passionate 
-                and professional Software Engineer | python | Django. 
+            <p style="text-indent: 100px;"> I am <b class="text-warning">kazi Mushfiqur Rahman</b> a passionate
+                and professional Software Engineer | python | Django.
                 Writing readable, reusable and efficient code is my key
                 focus when I develop software.
                 I have 1 year experience in Django in real life
-                web application. worked as backend engineer in <b 
-                class="text-warning">TECHNEOUS</b> for 1 year playing an
+                web application. worked as backend engineer in <b class="text-warning">TECHNEOUS</b> for 1 year playing an
                 important role in different real projects.
-                I have the ability to accomplish my task 
+                I have the ability to accomplish my task
                 independently as well as under someone's supervision.</p>
-                <p>Programming is my most favorite part of my life along
+            <p>Programming is my most favorite part of my life along
                 with gaming. Traveling & gardening are also listed in my
-                hobbies since natural environment is my most loving place, 
+                hobbies since natural environment is my most loving place,
                 though I have gotten too short time in those</p>
-                <p>My <b class="text-warning">GitHub profile</b>
-                (https://github.com/mushfiq1998). I have solved many 
-                mathematical problems and applied them in Python code. 
-                Converted  mathematical  problems  of different text books
-                of Education board Bangladesh into Python code, and they 
-                will be published in  near  future  as complete  book.  
-                They  are:	(1)  Python  for  kids - 
-                Elementery mathematics In Python (2) Pyhsics In	Python 
+            <p>My <b class="text-warning">GitHub profile</b>
+                (https://github.com/mushfiq1998). I have solved many
+                mathematical problems and applied them in Python code.
+                Converted mathematical problems of different text books
+                of Education board Bangladesh into Python code, and they
+                will be published in near future as complete book.
+                They are: (1) Python for kids -
+                Elementery mathematics In Python (2) Pyhsics In Python
                 (3) Mathematics in Python (4) HSC ICT C problems In Python
                 (4) Python for absolute beginners. Accomplishments section
                 of <b class="text-warning">LinkedIn</b>
                 (https://www.linkedin.com/in/kazi-mushfiqur-rahman-0a9948237/)
-                contains full details about my courses, publications and 
+                contains full details about my courses, publications and
                 projects.</p>
         </div>
     </div>
@@ -45,7 +41,30 @@
         <a href="{% url 'contact' %}" class="btn btn-outline-warning my-3 
         mr-5">Hire Me</a>
         <a href="{% url 'contact' %}" class="btn btn-outline-info my-3">
-        Contact</a>
+            Contact</a>
     </div>
 </div>
-{% endblock content %}
+<div class="container">
+    <h1>DOUGHNUTS</h1>
+    <p style="text-align: center">Daily selection varies by shop</p>
+
+    <ul class="category-menu">
+        <li>All</li>
+        <li>Iced</li>
+        <li>Glazed</li>
+        <li>Filled</li>
+        <li>Cake</li>
+        <li>Chocolate</li>
+    </ul>
+
+    <div class="doughnuts">
+        {% for doughnut in flavors %}
+        <div class="doughnut-item">
+            <img src="{{ doughnut.img }}" alt="{{ doughnut.flavorname }}" />
+            <p>{{ doughnut.flavorname }}</p>
+        </div>
+        {% empty %}
+        <p>No doughnuts available</p> <!-- This will show if the queryset is empty -->
+        {% endfor %}
+    </div>
+    {% endblock content %}

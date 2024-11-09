@@ -83,8 +83,15 @@ WSGI_APPLICATION = 'resume.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'paradisedonut',
+        'USER': 'donutuser',
+        'PASSWORD': 'password',
+        'HOST': 'terraform-20241109192045327100000005.cdk42q2yubew.us-east-2.rds.amazonaws.com',  # or your database server's IP address
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        },
     }
 }
 
