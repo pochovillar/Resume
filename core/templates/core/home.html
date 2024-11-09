@@ -44,27 +44,4 @@
             Contact</a>
     </div>
 </div>
-<div class="container">
-    <h1>DOUGHNUTS</h1>
-    <p style="text-align: center">Daily selection varies by shop</p>
-
-    <ul class="category-menu">
-        <li>All</li>
-        <li>Iced</li>
-        <li>Glazed</li>
-        <li>Filled</li>
-        <li>Cake</li>
-        <li>Chocolate</li>
-    </ul>
-
-    <div class="doughnuts">
-        {% for doughnut in flavors %}
-        <div class="doughnut-item">
-            <img src="{{ doughnut.img }}" alt="{{ doughnut.flavorname }}" />
-            <p>{{ doughnut.flavorname }}</p>
-        </div>
-        {% empty %}
-        <p>No doughnuts available</p> <!-- This will show if the queryset is empty -->
-        {% endfor %}
-    </div>
-    {% endblock content %}
+{% endblock content %}
